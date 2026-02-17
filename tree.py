@@ -7,22 +7,21 @@ from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_sc
 
 
 df = pd.read_csv('data/hd_data.csv')
-print((df['Heart Disease']).unique())
+#print((df['Heart Disease']).unique())
 df = df.dropna()
 df['Heart Disease Numeric'] = df['Heart Disease'].replace({'Absence': 0, 'Presence': 1})
 X = df[['Age', 'BP', 'Cholesterol', 'Max HR']]
 Y = df['Heart Disease Numeric'].astype(int)
-print("Y unique is", Y.unique())
-print("Y data type is", Y.dtype)
-
+#print("Y unique is", Y.unique())
+#print("Y data type is", Y.dtype)
 #X = df[['Age', 'BP', 'Cholesterol']]
 #Y = df['Max HR']  # target variable
 
 X_train, X_test, Y_train, Y_test = train_test_split(X,Y, test_size = 0.3, random_state=42)
 tree = DecisionTreeClassifier()
 
-print("Y train is", Y_train.unique())
-print("Y test is", Y_test.unique())
+#print("Y train is", Y_train.unique())
+#print("Y test is", Y_test.unique())
 
 #Training the data on the training dataset
 tree.fit(X_train, Y_train)
