@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score
-
+import matplotlib.pyplot as plt
 
 
 df = pd.read_csv('data/hd_data.csv')
@@ -41,3 +41,6 @@ print("Recall: ", recall, "\n")
 print("Precision: ", precision, "\n")
 print("F1 Score:", f1)
 
+plt.figure(figsize=(18,15)) 
+plot_tree(tree, filled=True, feature_names= tree.feature_names_in_)
+plt.show()
